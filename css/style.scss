@@ -1,5 +1,23 @@
-@import './resets';
-@import './variables';
+@import "resets";
+@import "variables";
+
+@function weight($weight-name) {
+	@return map-get($font-weights , $weight-name );
+}
+
+@mixin flexCenter($direction) {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: $direction;
+}
+
+@mixin theme($light-theme: true) {
+	@if $light-theme {
+		background: lighten($primary-color, 100%);
+		color: darken($text-color, 100%);
+	}
+}
 
 body {
 	background-color: $primary-color;
@@ -7,16 +25,26 @@ body {
 }
 
 .logo {
-	width: 70%;
+	width: 80%;
+	@include flexCenter(column);
 	margin: 15px auto;
 	background-color: lightpink;
 	padding: 15px;
+	border-radius: 8px;
+
+	img {
+		height: 100px;
+	}
 
 	#{&}__paragraph {
-		font-weight: map-get($font-weights, bold);
+		font-weight: weight(regular);
 
 		&:hover {
 			color: gainsboro;
 		}
 	}
+}
+
+.light {
+	@include theme($light-theme: true);
 }

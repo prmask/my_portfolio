@@ -6,19 +6,37 @@
 }
 
 body {
-  background-color: orange;
+  background-color: brightred;
   color: black;
 }
 
 .logo {
-  width: 70%;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin: 15px auto;
   background-color: lightpink;
   padding: 15px;
+  border-radius: 8px;
+}
+
+.logo img {
+  height: 100px;
 }
 
 .logo .logo__paragraph {
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .logo .logo__paragraph:hover {
