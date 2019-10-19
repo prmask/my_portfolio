@@ -1,0 +1,23 @@
+@import './resets';
+@import './variables';
+
+
+body {
+	background-color: $primary-color;
+	color: $text-color;
+}
+
+.logo {
+	width: 70%;
+	margin: 15px auto;
+	background-color: lightpink;
+	padding: 15px;
+
+	#{&}__paragraph {
+		font-weight: map-get($font-weights, bold);
+
+		&:hover {
+			color: gainsboro;
+		}
+	}
+}
