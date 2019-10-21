@@ -1,5 +1,4 @@
-@import "resets";
-@import "variables";
+@import 'resets', 'variables';
 
 @function weight($weight-name) {
 	@return map-get($font-weights , $weight-name );
@@ -14,8 +13,14 @@
 
 @mixin theme($light-theme: true) {
 	@if $light-theme {
-		background: lighten($primary-color, 100%);
-		color: darken($text-color, 100%);
+		background: lighten($primary-color, 65%);
+		color: darken($text-color, 15%);
+	}
+}
+
+@mixin mobile {
+	@media (max-width: $mobile) {
+		@content;
 	}
 }
 
@@ -26,7 +31,7 @@ body {
 
 .logo {
 	width: 80%;
-	@include flexCenter(column);
+	@include flexCenter(row);
 	margin: 15px auto;
 	background-color: lightpink;
 	padding: 15px;
@@ -37,11 +42,23 @@ body {
 	}
 
 	#{&}__paragraph {
-		font-weight: weight(regular);
+		font-weight: weight(bold);
 
 		&:hover {
 			color: gainsboro;
 		}
+	}
+
+	#{&}__paragraph1 {
+		@extend .logo__paragraph;
+
+		&:hover {
+			color: $accent-color;
+		}
+	}
+
+	@include mobile {
+		flex-direction: column;
 	}
 }
 
